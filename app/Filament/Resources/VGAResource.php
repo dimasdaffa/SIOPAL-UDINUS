@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Clusters\AllHardware;
 use App\Filament\Clusters\Hardware;
 use App\Filament\Resources\VGAResource\Pages;
 use App\Filament\Resources\VGAResource\RelationManagers;
@@ -11,6 +12,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Pages\SubNavigationPosition;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\SelectColumn;
@@ -31,8 +33,14 @@ class VGAResource extends Resource
 
     protected static ?string $modelLabel = 'VGA';
 
-    protected static ?string $navigationGroup = 'DATA HARDWARE';
-    
+    // protected static ?string $navigationGroup = 'DATA HARDWARE';
+
+    // protected static ?string $navigationParentItem = 'Processor';
+
+    protected static ?string $cluster = AllHardware::class;
+
+    // protected static $subNavigationPosition = SubNavigationPosition::Start;
+
     public static function form(Form $form): Form
     {
         return $form

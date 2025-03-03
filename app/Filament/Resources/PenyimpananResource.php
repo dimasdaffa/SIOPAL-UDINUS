@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Clusters\AllHardware;
 use App\Filament\Resources\PenyimpananResource\Pages;
 use App\Filament\Resources\PenyimpananResource\RelationManagers;
 use App\Models\Penyimpanan;
@@ -32,7 +33,9 @@ class PenyimpananResource extends Resource
 
     protected static ?string $modelLabel = 'Penyimpanan';
 
-    protected static ?string $navigationGroup = 'DATA HARDWARE';
+    // protected static ?string $navigationGroup = 'DATA HARDWARE';
+
+    protected static ?string $cluster = AllHardware::class;
 
     public static function form(Form $form): Form
     {

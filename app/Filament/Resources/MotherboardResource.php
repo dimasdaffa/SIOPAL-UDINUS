@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Clusters\AllHardware;
 use App\Filament\Resources\MotherboardResource\Pages;
 use App\Filament\Resources\MotherboardResource\RelationManagers;
 use App\Models\Motherboard;
@@ -28,7 +29,9 @@ class MotherboardResource extends Resource
 
     protected static ?string $modelLabel = 'Motherboard';
 
-    protected static ?string $navigationGroup = 'DATA HARDWARE';
+    // protected static ?string $navigationGroup = 'DATA HARDWARE';
+
+    protected static ?string $cluster = AllHardware::class;
 
     public static function form(Form $form): Form
     {

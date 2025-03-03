@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Clusters\AllHardware;
 use App\Filament\Clusters\Hardware;
 use App\Filament\Resources\RAMResource\Pages;
 use App\Filament\Resources\RAMResource\RelationManagers;
@@ -31,7 +32,9 @@ class RAMResource extends Resource
 
     protected static ?string $modelLabel = 'RAM';
 
-    protected static ?string $navigationGroup = 'DATA HARDWARE';
+    // protected static ?string $navigationGroup = 'DATA HARDWARE';
+
+    protected static ?string $cluster = AllHardware::class;
 
     public static function form(Form $form): Form
     {

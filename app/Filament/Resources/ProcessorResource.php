@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Clusters\AllHardware;
 use App\Filament\Resources\ProcessorResource\Pages;
 use App\Filament\Resources\ProcessorResource\RelationManagers;
 use App\Models\Processor;
@@ -28,7 +29,9 @@ class ProcessorResource extends Resource
 
     protected static ?string $modelLabel = 'Processor';
 
-    protected static ?string $navigationGroup = 'DATA HARDWARE';
+    // protected static ?string $navigationGroup = 'DATA HARDWARE';
+
+    protected static ?string $cluster = AllHardware::class;
 
     public static function form(Form $form): Form
     {
