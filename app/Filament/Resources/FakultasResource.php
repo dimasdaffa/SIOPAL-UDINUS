@@ -21,7 +21,9 @@ class FakultasResource extends Resource
 
     protected static ?string $navigationLabel = 'Data Fakultas';
 
-    protected static ?string $navigationGroup = 'Master Data';
+    protected static ?string $navigationGroup = 'MASTER DATA';
+
+    protected static ?int $navigationSort = 1 ;
 
     public static function form(Form $form): Form
     {

@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\KlasifikasiLabResource\Pages;
-use App\Filament\Resources\KlasifikasiLabResource\RelationManagers;
-use App\Models\KlasifikasiLab;
+use App\Filament\Resources\HardwareResource\Pages;
+use App\Filament\Resources\HardwareResource\RelationManagers;
+use App\Models\Hardware;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,19 +13,22 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class KlasifikasiLabResource extends Resource
+class HardwareResource extends Resource
 {
-    protected static ?string $model = KlasifikasiLab::class;
+    protected static ?string $model = Hardware::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-server-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-computer-desktop';
 
-    protected static ?string $slug = 'klasifikasi-lab';
+    protected static ?string $slug = 'hardware';
 
-    protected static ?string $navigationLabel = 'Data Klasifikasi Lab';
+    protected static ?string $navigationLabel = 'Data Hardware';
+
+    // protected static ?string $navigationParentItem = 'Laboran';
 
     protected static ?string $navigationGroup = 'MASTER DATA';
 
-    protected static ?int $navigationSort = 3 ;
+    protected static ?int $navigationSort = 6 ;
+
 
     public static function form(Form $form): Form
     {
@@ -64,9 +67,9 @@ class KlasifikasiLabResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListKlasifikasiLabs::route('/'),
-            'create' => Pages\CreateKlasifikasiLab::route('/create'),
-            'edit' => Pages\EditKlasifikasiLab::route('/{record}/edit'),
+            'index' => Pages\ListHardware::route('/'),
+            'create' => Pages\CreateHardware::route('/create'),
+            'edit' => Pages\EditHardware::route('/{record}/edit'),
         ];
     }
 }

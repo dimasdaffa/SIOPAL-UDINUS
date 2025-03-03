@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\KlasifikasiLabResource\Pages;
-use App\Filament\Resources\KlasifikasiLabResource\RelationManagers;
-use App\Models\KlasifikasiLab;
+use App\Filament\Resources\InventarisPCAResource\Pages;
+use App\Filament\Resources\InventarisPCAResource\RelationManagers;
+use App\Models\InventarisPCA;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,19 +13,17 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class KlasifikasiLabResource extends Resource
+class InventarisPCAResource extends Resource
 {
-    protected static ?string $model = KlasifikasiLab::class;
+    protected static ?string $model = InventarisPCA::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-server-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-cpu-chip';
 
-    protected static ?string $slug = 'klasifikasi-lab';
+    protected static ?string $slug = 'inventaris-pc-a';
 
-    protected static ?string $navigationLabel = 'Data Klasifikasi Lab';
+    protected static ?string $navigationLabel = 'PC Lab A';
 
-    protected static ?string $navigationGroup = 'MASTER DATA';
-
-    protected static ?int $navigationSort = 3 ;
+    protected static ?string $label = 'PC Lab A';
 
     public static function form(Form $form): Form
     {
@@ -64,9 +62,9 @@ class KlasifikasiLabResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListKlasifikasiLabs::route('/'),
-            'create' => Pages\CreateKlasifikasiLab::route('/create'),
-            'edit' => Pages\EditKlasifikasiLab::route('/{record}/edit'),
+            'index' => Pages\ListInventarisPCAS::route('/'),
+            'create' => Pages\CreateInventarisPCA::route('/create'),
+            'edit' => Pages\EditInventarisPCA::route('/{record}/edit'),
         ];
     }
 }
