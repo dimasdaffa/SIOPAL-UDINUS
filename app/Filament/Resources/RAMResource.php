@@ -2,35 +2,34 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PenyimpananResource\Pages;
-use App\Filament\Resources\PenyimpananResource\RelationManagers;
-use App\Models\Penyimpanan;
-use Faker\Provider\ar_EG\Text;
+use App\Filament\Clusters\Hardware;
+use App\Filament\Resources\RAMResource\Pages;
+use App\Filament\Resources\RAMResource\RelationManagers;
+use App\Models\RAM;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\NumericColumn;
+use Filament\Tables\Columns\TextInputColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PenyimpananResource extends Resource
+class RAMResource extends Resource
 {
-    protected static ?string $model = Penyimpanan::class;
+    protected static ?string $model = RAM::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-inbox-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-square-3-stack-3d';
 
-    protected static ?string $slug = 'penyimpanan';
+    protected static ?string $slug = 'ram';
 
-    protected static ?string $navigationLabel = 'Data Penyimpanan';
+    protected static ?string $navigationLabel = 'Data RAM';
 
-    protected static ?string $modelLabel = 'Penyimpanan';
+    protected static ?string $modelLabel = 'RAM';
 
     protected static ?string $navigationGroup = 'DATA HARDWARE';
 
@@ -49,10 +48,11 @@ class PenyimpananResource extends Resource
                     ->maxLength(255),
 
                 Select::make('tipe')
-                    ->label('Tipe')
+                    ->label('Tipe RAM')
                     ->options([
-                        'SSD' => 'SSD',
-                        'HDD' => 'HDD',
+                        'DDR3' => 'DDR3',
+                        'DDR4' => 'DDR4',
+                        'DDR5' => 'DDR5',
                     ])
                     ->required(),
 
@@ -60,12 +60,6 @@ class PenyimpananResource extends Resource
                     ->label('Kapasitas (GB)')
                     ->numeric()
                     ->minValue(1)
-                    ->required(),
-
-                Textarea::make('spesifikasi')
-                    ->label('Spesifikasi')
-                    ->rows(4)
-                    ->maxLength(500)
                     ->required(),
             ]);
     }
@@ -76,41 +70,32 @@ class PenyimpananResource extends Resource
             ->columns([
                 TextColumn::make('no_inventaris')
                     ->label('No Inventaris')
-                    ->searchable()
-                    ->sortable(),
+                    ->searchable(),
 
                 TextColumn::make('merk')
                     ->label('Merk')
-                    ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
 
                 TextColumn::make('tipe')
-                    ->label('Tipe')
-                    ->colors([
-                        'primary' => 'SSD',
-                        'warning' => 'HDD',
-                    ]),
+                    ->label('Tipe RAM')
+                    ->sortable()
+                    ->searchable(),
 
                 TextColumn::make('kapasitas')
                     ->label('Kapasitas (GB)')
                     ->sortable()
-                    ->formatStateUsing(fn($state) => number_format($state) . ' GB'),
-
-                TextColumn::make('spesifikasi')
-                    ->label('Spesifikasi')
-                    ->limit(50) // Biar tidak terlalu panjang
-                    ->wrap()
-                    ->tooltip(fn($record) => $record->spesifikasi),
+                    ->numeric(),
             ])
             ->filters([
-                Tables\Filters\SelectFilter::make('tipe')
+                SelectFilter::make('tipe')
+                    ->label('Filter Tipe RAM')
                     ->options([
-                        'SSD' => 'SSD',
-                        'HDD' => 'HDD',
-                    ])
-                    ->label('Filter Tipe'),
+                        'DDR3' => 'DDR3',
+                        'DDR4' => 'DDR4',
+                        'DDR5' => 'DDR5',
+                    ]),
             ])
-            ->defaultSort('no_inventaris', 'asc')
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
@@ -132,9 +117,9 @@ class PenyimpananResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPenyimpanans::route('/'),
-            'create' => Pages\CreatePenyimpanan::route('/create'),
-            'edit' => Pages\EditPenyimpanan::route('/{record}/edit'),
+            'index' => Pages\ListRAMS::route('/'),
+            'create' => Pages\CreateRAM::route('/create'),
+            'edit' => Pages\EditRAM::route('/{record}/edit'),
         ];
     }
 }

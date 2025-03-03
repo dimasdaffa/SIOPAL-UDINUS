@@ -28,6 +28,8 @@ class MotherboardResource extends Resource
 
     protected static ?string $modelLabel = 'Motherboard';
 
+    protected static ?string $navigationGroup = 'DATA HARDWARE';
+
     public static function form(Form $form): Form
     {
         return $form->schema([

@@ -2,42 +2,45 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProcessorResource\Pages;
-use App\Filament\Resources\ProcessorResource\RelationManagers;
-use App\Models\Processor;
+use App\Filament\Clusters\Hardware;
+use App\Filament\Resources\VGAResource\Pages;
+use App\Filament\Resources\VGAResource\RelationManagers;
+use App\Models\VGA;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ProcessorResource extends Resource
+class VGAResource extends Resource
 {
-    protected static ?string $model = Processor::class;
+    protected static ?string $model = VGA::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-cpu-chip';
+    protected static ?string $navigationIcon = 'heroicon-o-sparkles';
 
-    protected static ?string $slug = 'processor';
+    protected static ?string $slug = 'vga';
 
-    protected static ?string $navigationLabel = 'Data Processor';
+    protected static ?string $navigationLabel = 'Data VGA';
 
-    protected static ?string $modelLabel = 'Processor';
+    protected static ?string $modelLabel = 'VGA';
 
     protected static ?string $navigationGroup = 'DATA HARDWARE';
-
+    
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 TextInput::make('no_inventaris')
                     ->label('No Inventaris')
-                    ->disabled() // Tidak bisa diedit manual, otomatis terisi
-                    ->dehydrated(false),
+                    ->disabled() // Dibuat otomatis di model
+                    ->dehydrated(false), // Tidak dikirim ke backend, karena sudah diisi otomatis
 
                 TextInput::make('merk')
                     ->label('Merk')
@@ -45,9 +48,21 @@ class ProcessorResource extends Resource
                     ->maxLength(255),
 
                 TextInput::make('tipe')
-                    ->label('Tipe')
+                    ->label('Tipe VGA')
                     ->required()
                     ->maxLength(255),
+
+                TextInput::make('kapasitas')
+                    ->label('Kapasitas VRAM (GB)')
+                    ->numeric()
+                    ->minValue(1)
+                    ->required(),
+
+                Textarea::make('spesifikasi')
+                    ->label('Spesifikasi')
+                    ->rows(4)
+                    ->maxLength(500)
+                    ->required(),
 
                 Select::make('tahun')
                     ->label('Tahun')
@@ -66,20 +81,31 @@ class ProcessorResource extends Resource
     {
         return $table
             ->columns([
+                //
                 TextColumn::make('no_inventaris')
                     ->label('No Inventaris')
-                    ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
 
                 TextColumn::make('merk')
                     ->label('Merk')
-                    ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
 
                 TextColumn::make('tipe')
-                    ->label('Tipe')
-                    ->searchable()
-                    ->sortable(),
+                    ->label('Tipe VGA')
+                    ->sortable()
+                    ->searchable(),
+
+                TextColumn::make('kapasitas')
+                    ->label('Kapasitas VRAM (GB)')
+                    ->sortable()
+                    ->formatStateUsing(fn($state) => number_format($state) . ' GB'),
+
+                TextColumn::make('spesifikasi')
+                    ->label('Spesifikasi')
+                    ->limit(50) // Batasi tampilan agar tidak terlalu panjang
+                    ->tooltip(fn($record) => $record->spesifikasi),
 
                 TextColumn::make('tahun')
                     ->label('Tahun')
@@ -109,9 +135,9 @@ class ProcessorResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListProcessors::route('/'),
-            'create' => Pages\CreateProcessor::route('/create'),
-            'edit' => Pages\EditProcessor::route('/{record}/edit'),
+            'index' => Pages\ListVGAS::route('/'),
+            'create' => Pages\CreateVGA::route('/create'),
+            'edit' => Pages\EditVGA::route('/{record}/edit'),
         ];
     }
 }
