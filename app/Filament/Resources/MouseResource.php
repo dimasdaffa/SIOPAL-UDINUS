@@ -52,7 +52,7 @@ class MouseResource extends Resource
                     ->maxLength(255),
 
                 Select::make('tipe')
-                    ->label('Tipe Keyboard')
+                    ->label('Tipe Mouse')
                     ->options([
                         'USB' => 'USB',
                         'Wireless' => 'Wireless',
@@ -86,7 +86,7 @@ class MouseResource extends Resource
                     ->searchable(),
 
                 TextColumn::make('tipe')
-                    ->label('Tipe Keyboard')
+                    ->label('Tipe Mouse')
                     ->sortable(),
 
                 TextColumn::make('tahun')
