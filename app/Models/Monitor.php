@@ -22,7 +22,7 @@ class Monitor extends Model
         static::creating(function ($monitors) {
             $lastId = self::max('id') + 1; // Ambil ID terakhir & tambahkan 1
             $kodeUnik = str_pad($lastId, 3, '0', STR_PAD_LEFT); // Format 001, 002, dst.
-            $monitors->no_inventaris = 'LABKOM/MON' . $kodeUnik . '/' . $monitors->tahun;
+            $monitors->no_inventaris = 'LABKOM/MON/' . $kodeUnik . '/' . $monitors->tahun;
         });
     }
 }

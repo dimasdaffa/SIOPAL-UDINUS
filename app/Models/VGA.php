@@ -23,7 +23,7 @@ class VGA extends Model
         static::creating(function ($vga) {
             $tipe = strtoupper($vga->tipe); // Pastikan huruf besar (SSD/HDD)
             $id = VGA::max('id') + 1; // Ambil ID terakhir + 1
-            $vga->no_inventaris = "LABKOM/VG" . str_pad($id, 3, '0', STR_PAD_LEFT).'/'. $vga->tahun;
+            $vga->no_inventaris = "LABKOM/VG/" . str_pad($id, 3, '0', STR_PAD_LEFT).'/'. $vga->tahun;
         });
     }
 }

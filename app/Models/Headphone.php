@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Keyboard extends Model
+class Headphone extends Model
 {
     protected $fillable = [
         'merk',
-        'tipe',
+        'nama',
+        'spesifikasi',
         'tahun',
     ];
 
@@ -16,10 +17,10 @@ class Keyboard extends Model
     {
         parent::boot();
 
-        static::creating(function ($keyboard) {
+        static::creating(function ($headphones) {
             $lastId = self::max('id') + 1; // Ambil ID terakhir & tambahkan 1
             $kodeUnik = str_pad($lastId, 3, '0', STR_PAD_LEFT); // Format 001, 002, dst.
-            $keyboard->no_inventaris = 'LABKOM/KB/' . $kodeUnik . '/' . $keyboard->tahun;
+            $headphones->no_inventaris = 'LABKOM/HP/' . $kodeUnik . '/' . $headphones->tahun;
         });
     }
 }

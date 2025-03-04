@@ -22,7 +22,7 @@ class Penyimpanan extends Model
         static::creating(function ($penyimpanan) {
             $tipe = strtoupper($penyimpanan->tipe); // Pastikan huruf besar (SSD/HDD)
             $id = Penyimpanan::max('id') + 1; // Ambil ID terakhir + 1
-            $penyimpanan->no_inventaris = "LABKOM/PM" . str_pad($id, 3, '0', STR_PAD_LEFT) . "/$tipe";
+            $penyimpanan->no_inventaris = "LABKOM/PM/" . str_pad($id, 3, '0', STR_PAD_LEFT) . "/$tipe";
         });
     }
 }

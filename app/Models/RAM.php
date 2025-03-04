@@ -22,7 +22,7 @@ class RAM extends Model
         static::creating(function ($ram) {
             $tipe = strtoupper($ram->tipe); // Pastikan huruf besar (SSD/HDD)
             $id = RAM::max('id') + 1; // Ambil ID terakhir + 1
-            $ram->no_inventaris = "LABKOM/RM" . str_pad($id, 3, '0', STR_PAD_LEFT).'/'. $ram->tipe;
+            $ram->no_inventaris = "LABKOM/RM/" . str_pad($id, 3, '0', STR_PAD_LEFT).'/'. $ram->tipe;
         });
     }
 }

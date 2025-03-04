@@ -19,7 +19,7 @@ class Processor extends Model
         static::creating(function ($processor) {
             $lastId = self::max('id') + 1; // Ambil ID terakhir & tambahkan 1
             $kodeUnik = str_pad($lastId, 3, '0', STR_PAD_LEFT); // Format 001, 002, dst.
-            $processor->no_inventaris = 'LABKOM/PR' . $kodeUnik . '/' . $processor->tahun;
+            $processor->no_inventaris = 'LABKOM/PR/' . $kodeUnik . '/' . $processor->tahun;
         });
     }
 }
