@@ -33,13 +33,11 @@ class VGAResource extends Resource
 
     protected static ?string $modelLabel = 'VGA';
 
-    // protected static ?string $navigationGroup = 'DATA HARDWARE';
-
-    // protected static ?string $navigationParentItem = 'Processor';
-
     protected static ?string $cluster = AllHardware::class;
 
-    // protected static $subNavigationPosition = SubNavigationPosition::Start;
+    protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Top;
+
+    protected static ?int $navigationSort = 4 ;
 
     public static function form(Form $form): Form
     {

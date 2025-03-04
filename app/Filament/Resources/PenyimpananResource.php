@@ -12,6 +12,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Pages\SubNavigationPosition;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\BadgeColumn;
@@ -36,6 +37,10 @@ class PenyimpananResource extends Resource
     // protected static ?string $navigationGroup = 'DATA HARDWARE';
 
     protected static ?string $cluster = AllHardware::class;
+
+    protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Top;
+
+    protected static ?int $navigationSort = 3 ;
 
     public static function form(Form $form): Form
     {
