@@ -17,7 +17,7 @@ class KlasifikasiLabResource extends Resource
 {
     protected static ?string $model = KlasifikasiLab::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-server-stack';
+    protected static ?string $navigationIcon = 'fluentui-dual-screen-desktop-24-o';
 
     protected static ?string $slug = 'klasifikasi-lab';
 

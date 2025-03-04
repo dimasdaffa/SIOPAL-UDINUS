@@ -3,10 +3,9 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Clusters\AllHardware;
-use App\Filament\Clusters\Hardware;
-use App\Filament\Resources\RAMResource\Pages;
-use App\Filament\Resources\RAMResource\RelationManagers;
-use App\Models\RAM;
+use App\Filament\Resources\KeyboardResource\Pages;
+use App\Filament\Resources\KeyboardResource\RelationManagers;
+use App\Models\Keyboard;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -15,29 +14,28 @@ use Filament\Pages\SubNavigationPosition;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\TextInputColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class RAMResource extends Resource
+class KeyboardResource extends Resource
 {
-    protected static ?string $model = RAM::class;
+    protected static ?string $model = Keyboard::class;
 
-    protected static ?string $navigationIcon = 'fluentui-ram-20';
+    protected static ?string $navigationIcon = 'clarity-keyboard-line';
 
-    protected static ?string $slug = 'ram';
+    protected static ?string $slug = 'keyboard';
 
-    protected static ?string $navigationLabel = 'Data RAM';
+    protected static ?string $navigationLabel = 'Data Keyboard';
 
-    protected static ?string $modelLabel = 'RAM';
-    
+    protected static ?string $modelLabel = 'Keyboard';
+
     protected static ?string $cluster = AllHardware::class;
 
     protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Top;
 
-    protected static ?int $navigationSort = 5 ;
+    protected static ?int $navigationSort = 7 ;
 
     public static function form(Form $form): Form
     {
@@ -46,7 +44,7 @@ class RAMResource extends Resource
                 TextInput::make('no_inventaris')
                     ->label('No Inventaris')
                     ->disabled() // Dibuat otomatis di model
-                    ->dehydrated(false), // Tidak dikirim ke backend, karena sudah diisi otomatis
+                    ->dehydrated(false), // Tidak dikirim ke backend
 
                 TextInput::make('merk')
                     ->label('Merk')
@@ -54,18 +52,22 @@ class RAMResource extends Resource
                     ->maxLength(255),
 
                 Select::make('tipe')
-                    ->label('Tipe RAM')
+                    ->label('Tipe Keyboard')
                     ->options([
-                        'DDR3' => 'DDR3',
-                        'DDR4' => 'DDR4',
-                        'DDR5' => 'DDR5',
+                        'USB' => 'USB',
+                        'Wireless' => 'Wireless',
                     ])
                     ->required(),
 
-                TextInput::make('kapasitas')
-                    ->label('Kapasitas (GB)')
-                    ->numeric()
-                    ->minValue(1)
+                Select::make('tahun')
+                    ->label('Tahun')
+                    ->options(function () {
+                        $tahunSekarang = date('Y');
+                        return array_combine(
+                            range($tahunSekarang, $tahunSekarang - 20),
+                            range($tahunSekarang, $tahunSekarang - 20)
+                        );
+                    })
                     ->required(),
             ]);
     }
@@ -84,23 +86,23 @@ class RAMResource extends Resource
                     ->searchable(),
 
                 TextColumn::make('tipe')
-                    ->label('Tipe RAM')
-                    ->sortable()
-                    ->searchable(),
+                    ->label('Tipe Keyboard')
+                    ->sortable(),
 
-                TextColumn::make('kapasitas')
-                    ->label('Kapasitas (GB)')
-                    ->sortable()
-                    ->numeric(),
+                TextColumn::make('tahun')
+                    ->label('Tahun')
+                    ->sortable(),
             ])
             ->filters([
-                SelectFilter::make('tipe')
-                    ->label('Filter Tipe RAM')
-                    ->options([
-                        'DDR3' => 'DDR3',
-                        'DDR4' => 'DDR4',
-                        'DDR5' => 'DDR5',
-                    ]),
+                SelectFilter::make('tahun')
+                    ->label('Filter Tahun')
+                    ->options(function () {
+                        $tahunSekarang = date('Y');
+                        return array_combine(
+                            range($tahunSekarang, $tahunSekarang - 20),
+                            range($tahunSekarang, $tahunSekarang - 20)
+                        );
+                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -123,9 +125,9 @@ class RAMResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRAMS::route('/'),
-            'create' => Pages\CreateRAM::route('/create'),
-            'edit' => Pages\EditRAM::route('/{record}/edit'),
+            'index' => Pages\ListKeyboards::route('/'),
+            'create' => Pages\CreateKeyboard::route('/create'),
+            'edit' => Pages\EditKeyboard::route('/{record}/edit'),
         ];
     }
 }
