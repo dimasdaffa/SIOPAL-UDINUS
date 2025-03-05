@@ -24,19 +24,19 @@ class InventarisPCLaboratoriumAResource extends Resource
 {
     protected static ?string $model = Inventaris_PC_Laboratorium_A::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'clarity-computer-solid';
 
     protected static ?string $slug = 'pc-a';
 
-    protected static ?string $navigationLabel = 'Inventaris PC';
+    protected static ?string $navigationLabel = 'PC';
 
-    protected static ?string $modelLabel = 'Laboratorium A';
+    protected static ?string $modelLabel = 'Inventaris Laboratorium A';
 
     protected static ?string $cluster = InvenLabA::class;
 
     protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Top;
 
-    protected static ?int $navigationSort = 10 ;
+    protected static ?int $navigationSort = 1 ;
 
     public static function form(Form $form): Form
     {

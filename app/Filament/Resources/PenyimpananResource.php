@@ -40,7 +40,7 @@ class PenyimpananResource extends Resource
 
     protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Top;
 
-    protected static ?int $navigationSort = 3 ;
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
@@ -94,10 +94,11 @@ class PenyimpananResource extends Resource
 
                 TextColumn::make('tipe')
                     ->label('Tipe')
-                    ->colors([
-                        'primary' => 'SSD',
-                        'warning' => 'HDD',
-                    ]),
+                    ->badge() // Memberikan tampilan badge di tabel
+                    ->color(fn($state) => match ($state) {
+                        'SSD' => 'success',
+                        'HDD' => 'warning',
+                    }),
 
                 TextColumn::make('kapasitas')
                     ->label('Kapasitas (GB)')
