@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreatePenyimpanan extends CreateRecord
 {
     protected static string $resource = PenyimpananResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

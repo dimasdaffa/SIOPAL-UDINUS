@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateHeadphone extends CreateRecord
 {
     protected static string $resource = HeadphoneResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

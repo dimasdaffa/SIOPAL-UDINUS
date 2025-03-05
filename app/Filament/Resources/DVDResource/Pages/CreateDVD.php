@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateDVD extends CreateRecord
 {
     protected static string $resource = DVDResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

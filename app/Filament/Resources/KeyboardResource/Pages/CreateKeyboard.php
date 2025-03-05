@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateKeyboard extends CreateRecord
 {
     protected static string $resource = KeyboardResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

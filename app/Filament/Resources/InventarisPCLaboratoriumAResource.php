@@ -28,9 +28,9 @@ class InventarisPCLaboratoriumAResource extends Resource
 
     protected static ?string $slug = 'pc-a';
 
-    protected static ?string $navigationLabel = 'Laboratorium A';
+    protected static ?string $navigationLabel = 'Inventaris PC';
 
-    protected static ?string $modelLabel = 'Inventaris PC';
+    protected static ?string $modelLabel = 'Laboratorium A';
 
     protected static ?string $cluster = InvenLabA::class;
 

@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateKlasifikasiLab extends CreateRecord
 {
     protected static string $resource = KlasifikasiLabResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

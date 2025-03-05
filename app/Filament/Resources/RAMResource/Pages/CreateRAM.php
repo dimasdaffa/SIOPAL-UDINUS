@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateRAM extends CreateRecord
 {
     protected static string $resource = RAMResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }
