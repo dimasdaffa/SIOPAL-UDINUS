@@ -31,14 +31,14 @@ class DatabaseSeeder extends Seeder
         // Seeder Headphones
         Headphone::insert([
             [
-                'no_inventaris' => 'LABKOM/HP001/' . $tahunSekarang,
+                'no_inventaris' => 'LABKOM/HP/001/' . $tahunSekarang,
                 'merk' => 'Sony',
                 'nama' => 'Sony WH-1000XM4',
                 'spesifikasi' => 'Noise Cancelling, Bluetooth, Hi-Res Audio',
                 'tahun' => $tahunSekarang,
             ],
             [
-                'no_inventaris' => 'LABKOM/HP002/' . ($tahunSekarang - 1),
+                'no_inventaris' => 'LABKOM/HP/002/' . ($tahunSekarang - 1),
                 'merk' => 'Bose',
                 'nama' => 'Bose QuietComfort 45',
                 'spesifikasi' => 'ANC, Long Battery Life, Bluetooth 5.1',
@@ -48,19 +48,19 @@ class DatabaseSeeder extends Seeder
 
         Processor::insert([
             [
-                'no_inventaris' => 'LABKOM/PR001/' . $tahunSekarang,
+                'no_inventaris' => 'LABKOM/PR/001/' . $tahunSekarang,
                 'merk' => 'Intel',
                 'tipe' => 'Core i7-12700K',
                 'tahun' => $tahunSekarang,
             ],
             [
-                'no_inventaris' => 'LABKOM/PR002/' . ($tahunSekarang - 1),
+                'no_inventaris' => 'LABKOM/PR/002/' . ($tahunSekarang - 1),
                 'merk' => 'AMD',
                 'tipe' => 'Ryzen 7 5800X',
                 'tahun' => $tahunSekarang - 1,
             ],
             [
-                'no_inventaris' => 'LABKOM/PR003/' . ($tahunSekarang - 2),
+                'no_inventaris' => 'LABKOM/PR/003/' . ($tahunSekarang - 2),
                 'merk' => 'Intel',
                 'tipe' => 'Core i5-12600K',
                 'tahun' => $tahunSekarang - 2,
@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
 
         VGA::insert([
             [
-                'no_inventaris' => 'LABKOM/VGA001/' . $tahunSekarang,
+                'no_inventaris' => 'LABKOM/VGA/001/' . $tahunSekarang,
                 'merk' => 'NVIDIA',
                 'tipe' => 'RTX 3080',
                 'kapasitas' => 10,
@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
                 'tahun' => $tahunSekarang,
             ],
             [
-                'no_inventaris' => 'LABKOM/VGA002/' . ($tahunSekarang - 1),
+                'no_inventaris' => 'LABKOM/VGA/002/' . ($tahunSekarang - 1),
                 'merk' => 'AMD',
                 'tipe' => 'RX 6800 XT',
                 'kapasitas' => 16,
@@ -85,7 +85,7 @@ class DatabaseSeeder extends Seeder
                 'tahun' => $tahunSekarang - 1,
             ],
             [
-                'no_inventaris' => 'LABKOM/VGA003/' . ($tahunSekarang - 2),
+                'no_inventaris' => 'LABKOM/VGA/003/' . ($tahunSekarang - 2),
                 'merk' => 'Intel',
                 'tipe' => 'Arc A770',
                 'kapasitas' => 16,
@@ -96,19 +96,19 @@ class DatabaseSeeder extends Seeder
 
         RAM::insert([
             [
-                'no_inventaris' => 'LABKOM/RAM001/' . $tahunSekarang,
+                'no_inventaris' => 'LABKOM/RAM/001/' . $tahunSekarang,
                 'merk' => 'Corsair',
                 'tipe' => 'DDR4',
                 'kapasitas' => 16,
             ],
             [
-                'no_inventaris' => 'LABKOM/RAM002/' . ($tahunSekarang - 1),
+                'no_inventaris' => 'LABKOM/RAM/002/' . ($tahunSekarang - 1),
                 'merk' => 'Kingston',
                 'tipe' => 'DDR5',
                 'kapasitas' => 32,
             ],
             [
-                'no_inventaris' => 'LABKOM/RAM003/' . ($tahunSekarang - 2),
+                'no_inventaris' => 'LABKOM/RAM/003/' . ($tahunSekarang - 2),
                 'merk' => 'G.Skill',
                 'tipe' => 'DDR3',
                 'kapasitas' => 8,
@@ -118,7 +118,7 @@ class DatabaseSeeder extends Seeder
         // Seeder Monitors
         Monitor::insert([
             [
-                'no_inventaris' => 'LABKOM/MN001/' . $tahunSekarang,
+                'no_inventaris' => 'LABKOM/MN/001/' . $tahunSekarang,
                 'merk' => 'LG',
                 'nama' => 'LG UltraFine 4K',
                 'resolusi' => 3840,
@@ -127,7 +127,7 @@ class DatabaseSeeder extends Seeder
                 'tahun' => $tahunSekarang, // Tambahkan tahun di sini
             ],
             [
-                'no_inventaris' => 'LABKOM/MN002/' . ($tahunSekarang - 1),
+                'no_inventaris' => 'LABKOM/MN/002/' . ($tahunSekarang - 1),
                 'merk' => 'Dell',
                 'nama' => 'Dell P2723QE',
                 'resolusi' => 3840,
@@ -141,7 +141,7 @@ class DatabaseSeeder extends Seeder
         // Seeder Keyboards
         Keyboard::insert([
             [
-                'no_inventaris' => 'LABKOM/KY001/' . $tahunSekarang,
+                'no_inventaris' => 'LABKOM/KY/001/' . $tahunSekarang,
                 'merk' => 'Logitech',
                 'tipe' => 'USB',
                 'tahun' => $tahunSekarang,
@@ -157,14 +157,14 @@ class DatabaseSeeder extends Seeder
         // Seeder Penyimpanan
         Penyimpanan::insert([
             [
-                'no_inventaris' => 'LABKOM/PM001/SSD',
+                'no_inventaris' => 'LABKOM/PM/001/SSD',
                 'merk' => 'Samsung',
                 'tipe' => 'SSD',
                 'kapasitas' => 1000,
                 'spesifikasi' => 'NVMe, Gen4, 7000MB/s',
             ],
             [
-                'no_inventaris' => 'LABKOM/PM002/HDD',
+                'no_inventaris' => 'LABKOM/PM/002/HDD',
                 'merk' => 'Seagate',
                 'tipe' => 'HDD',
                 'kapasitas' => 2000,
@@ -175,7 +175,7 @@ class DatabaseSeeder extends Seeder
         // Seeder Motherboards
         Motherboard::insert([
             [
-                'no_inventaris' => 'LABKOM/MB001/' . $tahunSekarang,
+                'no_inventaris' => 'LABKOM/MB/001/' . $tahunSekarang,
                 'merk' => 'ASUS',
                 'tipe' => 'ROG STRIX B550-F',
                 'tahun' => $tahunSekarang,
@@ -184,21 +184,21 @@ class DatabaseSeeder extends Seeder
 
         DVD::insert([
             [
-                'no_inventaris' => 'LABKOM/DVD001/' . $tahunSekarang,
+                'no_inventaris' => 'LABKOM/DVD/001/' . $tahunSekarang,
                 'dvd' => 'DVD RW',
                 'merk' => 'LG',
                 'spesifikasi' => 'Kecepatan 24x, Mendukung DVD-R, DVD+R, RW',
                 'tahun' => $tahunSekarang,
             ],
             [
-                'no_inventaris' => 'LABKOM/DVD002/' . ($tahunSekarang - 1),
+                'no_inventaris' => 'LABKOM/DVD/002/' . ($tahunSekarang - 1),
                 'dvd' => 'DVD ROM',
                 'merk' => 'Asus',
                 'spesifikasi' => 'Kecepatan 16x, hanya membaca DVD',
                 'tahun' => $tahunSekarang - 1,
             ],
             [
-                'no_inventaris' => 'LABKOM/DVD003/' . ($tahunSekarang - 2),
+                'no_inventaris' => 'LABKOM/DVD/003/' . ($tahunSekarang - 2),
                 'dvd' => 'Blu-ray RW',
                 'merk' => 'Pioneer',
                 'spesifikasi' => 'Dukungan BD-R, BD-RE, DVD-R, DVD+R',
@@ -208,19 +208,19 @@ class DatabaseSeeder extends Seeder
 
         Mouse::insert([
             [
-                'no_inventaris' => 'LABKOM/MOUSE001/' . $tahunSekarang,
+                'no_inventaris' => 'LABKOM/MOUSE/001/' . $tahunSekarang,
                 'merk' => 'Logitech',
                 'tipe' => 'Wireless',
                 'tahun' => $tahunSekarang,
             ],
             [
-                'no_inventaris' => 'LABKOM/MOUSE002/' . ($tahunSekarang - 1),
+                'no_inventaris' => 'LABKOM/MOUSE/002/' . ($tahunSekarang - 1),
                 'merk' => 'Razer',
                 'tipe' => 'USB',
                 'tahun' => $tahunSekarang - 1,
             ],
             [
-                'no_inventaris' => 'LABKOM/MOUSE003/' . ($tahunSekarang - 2),
+                'no_inventaris' => 'LABKOM/MOUSE/003/' . ($tahunSekarang - 2),
                 'merk' => 'Microsoft',
                 'tipe' => 'Wireless',
                 'tahun' => $tahunSekarang - 2,
