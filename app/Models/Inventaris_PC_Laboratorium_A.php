@@ -8,6 +8,8 @@ class Inventaris_PC_Laboratorium_A extends Model
 {
     protected $guarded = ['id'];
 
+    protected $table='inventaris__p_c__laboratorium__a_s';
+
     protected static function boot()
     {
         parent::boot();

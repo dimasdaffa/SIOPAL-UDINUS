@@ -13,18 +13,19 @@ use App\Models\Motherboard;
 use App\Models\Mouse;
 use App\Models\Processor;
 use App\Models\RAM;
+use App\Models\User;
 use App\Models\VGA;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Hapus semua data sebelum seeding untuk menghindari duplikasi
-        DB::table('headphones')->truncate();
-        DB::table('monitors')->truncate();
-        DB::table('keyboards')->truncate();
-        DB::table('penyimpanans')->truncate();
-        DB::table('motherboards')->truncate();
+        // // Hapus semua data sebelum seeding untuk menghindari duplikasi
+        // DB::table('headphones')->truncate();
+        // DB::table('monitors')->truncate();
+        // DB::table('keyboards')->truncate();
+        // DB::table('penyimpanans')->truncate();
+        // DB::table('motherboards')->truncate();
 
         $tahunSekarang = date('Y');
 
@@ -224,6 +225,14 @@ class DatabaseSeeder extends Seeder
                 'merk' => 'Microsoft',
                 'tipe' => 'Wireless',
                 'tahun' => $tahunSekarang - 2,
+            ],
+        ]);
+
+        User::insert([
+            [
+                'name' => 'admin',
+                'email' => 'admin@mail.com',
+                'password' => bcrypt('admin'),
             ],
         ]);
     }

@@ -41,7 +41,7 @@ class InventarisPCLaboratoriumAResource extends Resource
             ->schema([
                 Select::make('motherboard_id')
                     ->label('Motherboard')
-                    ->relationship('motherboard', 'merk')
+                    ->relationship('motherboard', 'full_name')
                     ->required()
                     ->preload()//agar option select bisa muncul
                     ->searchable()
