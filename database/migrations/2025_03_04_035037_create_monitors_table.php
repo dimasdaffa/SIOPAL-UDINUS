@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('ukuran');
             $table->string('spesifikasi');
             $table->year('tahun');
+            $table->string('full_name')->virtualAs('concat(merk,\'-\',nama, \'-\',ukuran,\'inch\')');
             $table->timestamps();
         });
     }

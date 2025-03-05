@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('tipe');
             $table->string('spesifikasi');
             $table->integer('kapasitas');
+            $table->string('full_name')->virtualAs('concat(merk,\'-\',tipe, \'-\',kapasitas,\'GB\')');
             $table->year('tahun');
             $table->timestamps();
         });

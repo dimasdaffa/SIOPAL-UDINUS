@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('spesifikasi');
             $table->year('tahun');
+            $table->string('full_name')->virtualAs('concat(merk,\'-\',nama)');
             $table->timestamps();
         });
     }

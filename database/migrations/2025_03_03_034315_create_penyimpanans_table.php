@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('tipe', ['SSD', 'HDD']);
             $table->integer('kapasitas');
             $table->string('spesifikasi');
+            $table->string('full_name')->virtualAs('concat(tipe,\'-\',merk, \'-\',kapasitas,\'GB\')');
             $table->timestamps();
         });
     }
