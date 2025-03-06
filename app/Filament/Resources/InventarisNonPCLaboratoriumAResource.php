@@ -134,8 +134,8 @@ class InventarisNonPCLaboratoriumAResource extends Resource
     {
         return [
             'index' => Pages\ListInventarisNonPCLaboratoriumAS::route('/'),
-            'create' => Pages\CreateInventarisNonPCLaboratoriumA::route('/create'),
-            'edit' => Pages\EditInventarisNonPCLaboratoriumA::route('/{record}/edit'),
+            // 'create' => Pages\CreateInventarisNonPCLaboratoriumA::route('/create'),
+            // 'edit' => Pages\EditInventarisNonPCLaboratoriumA::route('/{record}/edit'),
         ];
     }
 }

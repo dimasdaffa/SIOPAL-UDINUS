@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Clusters\InvenLabD\Resources;
 
-use App\Filament\Clusters\InvenLabA;
-use App\Filament\Resources\InventarisPCLaboratoriumAResource\Pages;
-use App\Filament\Resources\InventarisPCLaboratoriumAResource\RelationManagers;
-use App\Models\Inventaris_PC_Laboratorium_A;
-use App\Models\InventarisPCLaboratoriumA; // Ensure this class exists in the specified namespace
+use App\Filament\Clusters\InvenLabD;
+use App\Filament\Clusters\InvenLabD\Resources\InventarisPCLaboratoriumDResource\Pages;
+use App\Filament\Clusters\InvenLabD\Resources\InventarisPCLaboratoriumDResource\RelationManagers;
+use App\Models\Inventaris_PC_Laboratorium_D;
+use App\Models\InventarisPCLaboratoriumD;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -20,23 +20,22 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class InventarisPCLaboratoriumAResource extends Resource
+class InventarisPCLaboratoriumDResource extends Resource
 {
-    protected static ?string $model = Inventaris_PC_Laboratorium_A::class;
+    protected static ?string $model = Inventaris_PC_Laboratorium_D::class;
 
     protected static ?string $navigationIcon = 'clarity-computer-solid';
 
-    protected static ?string $slug = 'pc-a';
+    protected static ?string $cluster = InvenLabD::class;
+
+    protected static ?string $slug = 'pc-d';
 
     protected static ?string $navigationLabel = 'PC';
 
-    protected static ?string $modelLabel = 'Inventaris Laboratorium A';
-
-    protected static ?string $cluster = InvenLabA::class;
+    protected static ?string $modelLabel = 'Inventaris Laboratorium D';
 
     protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Top;
 
-    protected static ?int $navigationSort = 1 ;
 
     public static function form(Form $form): Form
     {
@@ -50,70 +49,70 @@ class InventarisPCLaboratoriumAResource extends Resource
                     ->label('Motherboard')
                     ->relationship('motherboard', 'full_name')
                     ->required()
-                    ->preload()//agar option select bisa muncul
+                    ->preload() //agar option select bisa muncul
                     ->searchable()
                     ->placeholder('Select a motherboard'),
                 Select::make('processor_id')
                     ->label('Processor')
                     ->relationship('processor', 'full_name')
                     ->required()
-                    ->preload()//agar option select bisa muncul
+                    ->preload() //agar option select bisa muncul
                     ->searchable()
                     ->placeholder('Select a processor'),
                 Select::make('penyimpanan_id')
                     ->label('Penyimpanan')
                     ->relationship('penyimpanan', 'full_name')
                     ->required()
-                    ->preload()//agar option select bisa muncul
+                    ->preload() //agar option select bisa muncul
                     ->searchable()
                     ->placeholder('Select a penyimpanan'),
                 Select::make('vga_id')
                     ->label('VGA')
                     ->relationship('vga', 'full_name')
                     ->required()
-                    ->preload()//agar option select bisa muncul
+                    ->preload() //agar option select bisa muncul
                     ->searchable()
                     ->placeholder('Select a VGA'),
                 Select::make('ram_id')
                     ->label('RAM')
                     ->relationship('ram', 'full_name')
                     ->required()
-                    ->preload()//agar option select bisa muncul
+                    ->preload() //agar option select bisa muncul
                     ->searchable()
                     ->placeholder('Select a RAM'),
                 Select::make('dvd_id')
                     ->label('DVD')
                     ->relationship('dvd', 'merk')
                     ->required()
-                    ->preload()//agar option select bisa muncul
+                    ->preload() //agar option select bisa muncul
                     ->searchable()
                     ->placeholder('Select a DVD'),
                 Select::make('keyboard_id')
                     ->label('Keyboard')
                     ->relationship('keyboard', 'full_name')
                     ->required()
-                    ->preload()//agar option select bisa muncul
+                    ->preload() //agar option select bisa muncul
                     ->searchable()
                     ->placeholder('Select a Keyboard'),
                 Select::make('mouse_id')
                     ->label('Mouse')
                     ->relationship('mouse', 'full_name')
                     ->required()
-                    ->preload()//agar option select bisa muncul
+                    ->preload() //agar option select bisa muncul
                     ->searchable()
                     ->placeholder('Select a Mouse'),
                 Select::make('monitor_id')
                     ->label('Monitor')
                     ->relationship('monitor', 'full_name')
                     ->required()
-                    ->preload()//agar option select bisa muncul
+                    ->preload() //agar option select bisa muncul
                     ->searchable()
                     ->placeholder('Select a Monitor'),
                 Select::make('headphone_id')
                     ->label('Headphone')
                     ->relationship('headphone', 'full_name')
                     ->required()
-                    ->preload()//agar option select bisa muncul
+                    ->preload() //agar option select bisa muncul
                     ->searchable()
                     ->placeholder('Select a Headphone'),
             ]);
@@ -219,10 +218,10 @@ class InventarisPCLaboratoriumAResource extends Resource
                 ->label('Headphone')
                 ->relationship('headphone', 'full_name'),
         ])
-        ->actions([
-            Tables\Actions\EditAction::make(),
-            Tables\Actions\DeleteAction::make(),
-        ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+            ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
@@ -240,9 +239,9 @@ class InventarisPCLaboratoriumAResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListInventarisPCLaboratoriumAS::route('/'),
-            // 'create' => Pages\CreateInventarisPCLaboratoriumA::route('/create'),
-            // 'edit' => Pages\EditInventarisPCLaboratoriumA::route('/{record}/edit'),
+            'index' => Pages\ListInventarisPCLaboratoriumDS::route('/'),
+            // 'create' => Pages\CreateInventarisPCLaboratoriumD::route('/create'),
+            // 'edit' => Pages\EditInventarisPCLaboratoriumD::route('/{record}/edit'),
         ];
     }
 }

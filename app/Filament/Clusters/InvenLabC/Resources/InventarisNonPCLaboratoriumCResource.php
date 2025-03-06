@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Filament\Clusters\InvenLabB\Resources;
+namespace App\Filament\Clusters\InvenLabC\Resources;
 
-use App\Filament\Clusters\InvenLabB;
-use App\Filament\Clusters\InvenLabB\Resources\InventarisNonPCLaboratoriumBResource\Pages;
-use App\Filament\Clusters\InvenLabB\Resources\InventarisNonPCLaboratoriumBResource\RelationManagers;
-use App\Models\Inventaris_Non_PC_Laboratorium_B;
-use App\Models\InventarisNonPCLaboratoriumB;
+use App\Filament\Clusters\InvenLabC;
+use App\Filament\Clusters\InvenLabC\Resources\InventarisNonPCLaboratoriumCResource\Pages;
+use App\Filament\Clusters\InvenLabC\Resources\InventarisNonPCLaboratoriumCResource\RelationManagers;
+use App\Models\Inventaris_Non_PC_Laboratorium_C;
+use App\Models\InventarisNonPCLaboratoriumC;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -20,19 +20,19 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class InventarisNonPCLaboratoriumBResource extends Resource
+class InventarisNonPCLaboratoriumCResource extends Resource
 {
-    protected static ?string $model = Inventaris_Non_PC_Laboratorium_B::class;
+    protected static ?string $model = Inventaris_Non_PC_Laboratorium_C::class;
 
     protected static ?string $navigationIcon = 'fluentui-box-24-o';
 
-    protected static ?string $cluster = InvenLabB::class;
+    protected static ?string $cluster = InvenLabC::class;
 
-    protected static ?string $slug = 'non-pc-b';
+    protected static ?string $slug = 'non-pc-c';
 
     protected static ?string $navigationLabel = 'Non-PC';
 
-    protected static ?string $modelLabel = 'Inventaris Laboratorium B';
+    protected static ?string $modelLabel = 'Inventaris Laboratorium C';
 
     protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Top;
 
@@ -133,9 +133,9 @@ class InventarisNonPCLaboratoriumBResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListInventarisNonPCLaboratoriumBS::route('/'),
-            // 'create' => Pages\CreateInventarisNonPCLaboratoriumB::route('/create'),
-            // 'edit' => Pages\EditInventarisNonPCLaboratoriumB::route('/{record}/edit'),
+            'index' => Pages\ListInventarisNonPCLaboratoriumCS::route('/'),
+            // 'create' => Pages\CreateInventarisNonPCLaboratoriumC::route('/create'),
+            // 'edit' => Pages\EditInventarisNonPCLaboratoriumC::route('/{record}/edit'),
         ];
     }
 }

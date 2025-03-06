@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        Schema::create('inventaris__p_c__laboratorium__c_s', function (Blueprint $table) {
+        Schema::create('inventaris__p_c__laboratorium__e_s', function (Blueprint $table) {
             $table->id();
             $table->string('no_inventaris')->unique();
             $table->unsignedBigInteger('motherboard_id');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('ram_id');
             $table->unsignedBigInteger('dvd_id');
             $table->unsignedBigInteger('keyboard_id');
-            $table->unsignedBigInteger('mouse_id'); //mouse=model, mice=table
+            $table->unsignedBigInteger('mouse_id'); 
             $table->unsignedBigInteger('monitor_id');
             $table->unsignedBigInteger('headphone_id');
             $table->timestamps();
@@ -48,6 +48,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inventaris__p_c__laboratorium__c_s');
+        Schema::dropIfExists('inventaris__p_c__laboratorium__e_s');
     }
 };

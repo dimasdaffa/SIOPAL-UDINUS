@@ -102,8 +102,8 @@ class InventarisSoftwareLaboratoriumAResource extends Resource
     {
         return [
             'index' => Pages\ListInventarisSoftwareLaboratoriumAS::route('/'),
-            'create' => Pages\CreateInventarisSoftwareLaboratoriumA::route('/create'),
-            'edit' => Pages\EditInventarisSoftwareLaboratoriumA::route('/{record}/edit'),
+            // 'create' => Pages\CreateInventarisSoftwareLaboratoriumA::route('/create'),
+            // 'edit' => Pages\EditInventarisSoftwareLaboratoriumA::route('/{record}/edit'),
         ];
     }
 }
