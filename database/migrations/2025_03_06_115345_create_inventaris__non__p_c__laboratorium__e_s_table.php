@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inventaris__software__laboratorium__a_s', function (Blueprint $table) {
+        Schema::create('inventaris__non__p_c__laboratorium__e_s', function (Blueprint $table) {
             $table->id();
+            $table->string('no_inventaris')->unique();
             $table->string('nama');
-            $table->string('versi');
-            $table->text('keterangan')->nullable();
+            $table->integer('jumlah');
+            $table->string('kondisi');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inventaris__software__laboratorium__a_s');
+        Schema::dropIfExists('inventaris__non__p_c__laboratorium__e_s');
     }
 };

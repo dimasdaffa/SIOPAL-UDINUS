@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Filament\Clusters\InvenLabB\Resources;
+namespace App\Filament\Clusters\InvenLabE\Resources;
 
-use App\Filament\Clusters\InvenLabB;
-use App\Filament\Clusters\InvenLabB\Resources\InventarisSoftwareLaboratoriumBResource\Pages;
-use App\Filament\Clusters\InvenLabB\Resources\InventarisSoftwareLaboratoriumBResource\RelationManagers;
-use App\Models\Inventaris_Software_Laboratorium_B;
-use App\Models\InventarisSoftwareLaboratoriumB;
+use App\Filament\Clusters\InvenLabE;
+use App\Filament\Clusters\InvenLabE\Resources\InventarisSoftwareLaboratoriumEResource\Pages;
+use App\Filament\Clusters\InvenLabE\Resources\InventarisSoftwareLaboratoriumEResource\RelationManagers;
+use App\Models\Inventaris_Software_Laboratorium_E;
+use App\Models\InventarisSoftwareLaboratoriumE;
 use Filament\Forms;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -19,19 +19,19 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class InventarisSoftwareLaboratoriumBResource extends Resource
+class InventarisSoftwareLaboratoriumEResource extends Resource
 {
-    protected static ?string $model = Inventaris_Software_Laboratorium_B::class;
+    protected static ?string $model = Inventaris_Software_Laboratorium_E::class;
 
     protected static ?string $navigationIcon = 'clarity-application-line';
 
-    protected static ?string $slug = 'software-b';
+    protected static ?string $slug = 'software-e';
 
     protected static ?string $navigationLabel = 'Software';
 
-    protected static ?string $modelLabel = 'Inventaris Laboratorium B';
+    protected static ?string $modelLabel = 'Inventaris Laboratorium E';
 
-    protected static ?string $cluster = InvenLabB::class;
+    protected static ?string $cluster = InvenLabE::class;
 
     protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Top;
 
@@ -102,9 +102,9 @@ class InventarisSoftwareLaboratoriumBResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListInventarisSoftwareLaboratoriumBS::route('/'),
-            // 'create' => Pages\CreateInventarisSoftwareLaboratoriumB::route('/create'),
-            // 'edit' => Pages\EditInventarisSoftwareLaboratoriumB::route('/{record}/edit'),
+            'index' => Pages\ListInventarisSoftwareLaboratoriumES::route('/'),
+            // 'create' => Pages\CreateInventarisSoftwareLaboratoriumE::route('/create'),
+            // 'edit' => Pages\EditInventarisSoftwareLaboratoriumE::route('/{record}/edit'),
         ];
     }
 }

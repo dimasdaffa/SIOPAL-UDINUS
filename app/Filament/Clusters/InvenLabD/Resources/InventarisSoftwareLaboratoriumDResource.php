@@ -54,6 +54,7 @@ class InventarisSoftwareLaboratoriumDResource extends Resource
                 Textarea::make('keterangan')
                     ->label('Keterangan')
                     ->rows(3)
+                    ->nullable()
                     ->maxLength(500),
             ]);
     }

@@ -12,4 +12,7 @@ class Inventaris_Software_Laboratorium_A extends Model
         'keterangan',
     ];
 
+    protected $attributes = [
+        'keterangan' => '',
+    ];
 }

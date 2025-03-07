@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('versi');
-            $table->string('keterangan');
+            $table->text('keterangan')->nullable();
             $table->timestamps();
         });
     }

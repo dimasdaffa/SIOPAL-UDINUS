@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Inventaris_Software_Laboratorium_B extends Model
+class Inventaris_Software_Laboratorium_E extends Model
 {
     protected $fillable = [
         'versi',
@@ -15,4 +15,5 @@ class Inventaris_Software_Laboratorium_B extends Model
     protected $attributes = [
         'keterangan' => '',
     ];
+
 }

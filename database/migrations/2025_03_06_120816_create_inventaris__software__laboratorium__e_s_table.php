@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inventaris__software__laboratorium__a_s', function (Blueprint $table) {
+        Schema::create('inventaris__software__laboratorium__e_s', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
             $table->string('versi');
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inventaris__software__laboratorium__a_s');
+        Schema::dropIfExists('inventaris__software__laboratorium__e_s');
     }
 };
