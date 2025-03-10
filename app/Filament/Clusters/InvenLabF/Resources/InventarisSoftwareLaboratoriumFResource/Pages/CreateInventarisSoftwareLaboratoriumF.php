@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateInventarisSoftwareLaboratoriumF extends CreateRecord
 {
     protected static string $resource = InventarisSoftwareLaboratoriumFResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }
