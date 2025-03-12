@@ -37,6 +37,6 @@ SIOPAL (Sistem Informasi Operasional dan Pelayanan Administrasi Laboratorium) UD
 
 ## Lisensi
 
-Proyek ini dilisensikan di bawah lisensi MIT.
+Proyek ini dilisensikan di bawah lisensi Proprietary.
 
 Semoga README ini membantu Anda dalam memahami status beta proyek SIOPAL-UDINUS.
