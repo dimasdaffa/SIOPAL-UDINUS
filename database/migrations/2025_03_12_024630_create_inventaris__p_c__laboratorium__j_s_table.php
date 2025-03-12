@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        Schema::create('inventaris__p_c__laboratorium__i_s', function (Blueprint $table) {
+        Schema::create('inventaris__p_c__laboratorium__j_s', function (Blueprint $table) {
             $table->id();
             $table->string('no_inventaris')->unique();
             $table->unsignedBigInteger('motherboard_id');
@@ -48,6 +48,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inventaris__p_c__laboratorium__i_s');
+        Schema::dropIfExists('inventaris__p_c__laboratorium__j_s');
     }
 };
