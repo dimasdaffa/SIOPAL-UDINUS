@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Inventaris_Non_PC_Laboratorium_L extends Model
+class Inventaris_Non_PC_Laboratorium_M extends Model
 {
     protected $fillable = [
         'jumlah',
@@ -20,7 +20,7 @@ class Inventaris_Non_PC_Laboratorium_L extends Model
         static::creating(function ($nonpc) {
             $lastId = self::max('id') + 1; // Ambil ID terakhir & tambahkan 1
             $kodeUnik = str_pad($lastId, 2, '0', STR_PAD_LEFT); // Format 001, 002, dst.
-            $nonpc->no_inventaris = 'UDN/LABKOM/INV/NON-PC/D3L/' . $kodeUnik ;
+            $nonpc->no_inventaris = 'UDN/LABKOM/INV/NON-PC/D3M/' . $kodeUnik ;
         });
     }
 }

@@ -4,20 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Inventaris_PC_Laboratorium_L extends Model
+class Inventaris_PC_Laboratorium_M extends Model
 {
     protected $guarded = ['id'];
 
-    protected $table='inventaris__p_c__laboratorium__l_s';
+    protected $table='inventaris__p_c__laboratorium__m_s';
 
     protected static function boot()
     {
         parent::boot();
 
-        static::creating(function ($invLABL) { //PARAMETER BEBAS
+        static::creating(function ($invLABM) { //PARAMETER BEBAS
             $lastId = self::max('id') + 1; // Ambil ID terakhir & tambahkan 1
             $kodeUnik = str_pad($lastId, 2, '0', STR_PAD_LEFT); // Format 01, 02, dst.
-            $invLABL->no_inventaris = 'UDN/LABKOM/INV/D3L/PC' . $kodeUnik;
+            $invLABM->no_inventaris = 'UDN/LABKOM/INV/D3M/PC' . $kodeUnik;
         });
     }
 
