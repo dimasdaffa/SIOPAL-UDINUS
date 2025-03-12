@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Clusters\InvenLabG\Resources\InventarisPCLaboratoriumGResource\Pages;
+namespace App\Filament\Clusters\InvenLabG\Resources\InventarisNonPCLaboratoriumGResource\Pages;
 
-use App\Filament\Clusters\InvenLabG\Resources\InventarisPCLaboratoriumGResource;
+use App\Filament\Clusters\InvenLabG\Resources\InventarisNonPCLaboratoriumGResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditInventarisPCLaboratoriumG extends EditRecord
+class EditInventarisNonPCLaboratoriumG extends EditRecord
 {
-    protected static string $resource = InventarisPCLaboratoriumGResource::class;
+    protected static string $resource = InventarisNonPCLaboratoriumGResource::class;
 
     protected function getHeaderActions(): array
     {
