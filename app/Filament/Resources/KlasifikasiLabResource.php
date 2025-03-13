@@ -6,9 +6,11 @@ use App\Filament\Resources\KlasifikasiLabResource\Pages;
 use App\Filament\Resources\KlasifikasiLabResource\RelationManagers;
 use App\Models\KlasifikasiLab;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -25,13 +27,21 @@ class KlasifikasiLabResource extends Resource
 
     protected static ?string $navigationGroup = 'MASTER DATA';
 
-    protected static ?int $navigationSort = 3 ;
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                TextInput::make('kode_kategori')
+                    ->label('Kode Kategori')
+                    ->maxLength(6)
+                    ->unique(KlasifikasiLab::class, 'kode_kategori')
+                    ->required(),
+
+                TextInput::make('nama_kategori')
+                    ->label('Nama Klasifikasi Lab')
+                    ->required(),
             ]);
     }
 
@@ -39,13 +49,13 @@ class KlasifikasiLabResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('kode_kategori')->label('Kode Kategori')->sortable()->searchable(),
+                TextColumn::make('nama_kategori')->label('Nama Klasifikasi Lab')->sortable()->searchable(),
             ])
-            ->filters([
-                //
-            ])
+            ->filters([])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -65,8 +75,8 @@ class KlasifikasiLabResource extends Resource
     {
         return [
             'index' => Pages\ListKlasifikasiLabs::route('/'),
-            'create' => Pages\CreateKlasifikasiLab::route('/create'),
-            'edit' => Pages\EditKlasifikasiLab::route('/{record}/edit'),
+            // 'create' => Pages\CreateKlasifikasiLab::route('/create'),
+            // 'edit' => Pages\EditKlasifikasiLab::route('/{record}/edit'),
         ];
     }
 }

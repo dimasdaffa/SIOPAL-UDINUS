@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('klasifikasi_labs', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_kategori', 5)->unique();
+            $table->string('nama_kategori');
             $table->timestamps();
         });
     }

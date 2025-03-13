@@ -6,9 +6,13 @@ use App\Filament\Resources\LaboratoriumResource\Pages;
 use App\Filament\Resources\LaboratoriumResource\RelationManagers;
 use App\Models\Laboratorium;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -25,13 +29,30 @@ class LaboratoriumResource extends Resource
 
     protected static ?string $navigationGroup = 'MASTER DATA';
 
-    protected static ?int $navigationSort = 4 ;
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                Select::make('kategori_id')
+                    ->label('Kategori')
+                    ->relationship('kategori', 'nama_kategori')
+                    ->required()
+                    ->preload() //agar option select bisa muncul
+                    ->searchable()
+                    ->placeholder('Select kategori'),
+
+                TextInput::make('ruang')
+                    ->label('Ruang Laboratorium')
+                    ->required()
+                    ->maxLength(255),
+
+                TextInput::make('kapasitas')
+                    ->label('Kapasitas Ruangan')
+                    ->numeric()
+                    ->minValue(1)
+                    ->required(),
             ]);
     }
 
@@ -39,13 +60,28 @@ class LaboratoriumResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('ruang')
+                    ->label('Ruang Laboratorium')
+                    ->sortable()
+                    ->searchable(),
+
+                TextColumn::make('kategori.nama_kategori')
+                    ->label('Kategori Laboratorium')
+                    ->sortable()
+                    ->searchable(),
+
+                TextColumn::make('kapasitas')
+                    ->label('Kapasitas')
+                    ->sortable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('kategori_id')
+                    ->label('Filter Kategori')
+                    ->relationship('kategori', 'nama_kategori'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -65,8 +101,8 @@ class LaboratoriumResource extends Resource
     {
         return [
             'index' => Pages\ListLaboratoria::route('/'),
-            'create' => Pages\CreateLaboratorium::route('/create'),
-            'edit' => Pages\EditLaboratorium::route('/{record}/edit'),
+            // 'create' => Pages\CreateLaboratorium::route('/create'),
+            // 'edit' => Pages\EditLaboratorium::route('/{record}/edit'),
         ];
     }
 }
