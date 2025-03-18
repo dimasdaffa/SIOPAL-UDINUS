@@ -19,13 +19,13 @@ class FakultasResource extends Resource
 {
     protected static ?string $model = Fakultas::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-building-library';
+    // protected static ?string $navigationIcon = 'heroicon-o-building-library';
 
-    protected static ?string $navigationLabel = 'Data Fakultas';
+    // protected static ?string $navigationLabel = 'Data Fakultas';
 
-    protected static ?string $navigationGroup = 'MASTER DATA';
+    // protected static ?string $navigationGroup = 'MASTER DATA';
 
-    protected static ?int $navigationSort = 1;
+    // protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {

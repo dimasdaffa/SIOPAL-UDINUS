@@ -12,6 +12,7 @@
         "codeat3/blade-fluentui-system-icons": "^1.34",
         "codeat3/blade-phosphor-icons": "*",
         "filament/filament": "^3.3",
+        "filament/notifications": "^3.3",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "postare/blade-mdi": "^1.0"

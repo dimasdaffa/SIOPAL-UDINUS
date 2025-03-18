@@ -48,7 +48,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        
+
         Schema::dropIfExists('inventaris__p_c__laboratorium__a_s');
     }
 };

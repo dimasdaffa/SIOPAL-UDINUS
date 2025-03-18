@@ -17,15 +17,15 @@ class JamPraktikumResource extends Resource
 {
     protected static ?string $model = JamPraktikum::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-clock';
+    // protected static ?string $navigationIcon = 'heroicon-o-clock';
 
-    protected static ?string $slug = 'jam-praktikum';
+    // protected static ?string $slug = 'jam-praktikum';
 
-    protected static ?string $navigationLabel = 'Data Jam Praktikum';
+    // protected static ?string $navigationLabel = 'Data Jam Praktikum';
 
-    protected static ?string $navigationGroup = 'MASTER DATA';
+    // protected static ?string $navigationGroup = 'MASTER DATA';
 
-    protected static ?int $navigationSort = 2 ;
+    // protected static ?int $navigationSort = 2 ;
 
     public static function form(Form $form): Form
     {
