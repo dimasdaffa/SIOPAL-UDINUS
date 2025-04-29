@@ -738,12 +738,12 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
-        User::insert([
-            [
-                'name' => 'admin',
-                'email' => 'admin@mail.com',
-                'password' => bcrypt('admin'),
-            ],
-        ]);
+        // User::insert([
+        //     [
+        //         'name' => 'admin',
+        //         'email' => 'admin@mail.com',
+        //         'password' => bcrypt('admin'),
+        //     ],
+        // ]);
     }
 }
