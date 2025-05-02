@@ -8,6 +8,7 @@ Route::get('/', function () {
     return Redirect::route('filament.admin.pages.dashboard');
 });
 
-Route::get('/ptpp/{id}/view', [PtppPdfController::class, 'show'])->name('ptpp.view');
-Route::get('/ptpp/{id}/pdf', [PtppPdfController::class, 'download'])->name('ptpp.pdf');
-Route::get('/ptpp/{id}/stream', [PtppPdfController::class, 'stream'])->name('ptpp.stream');
+// Routes untuk Permintaan Tindakan Perbaikan dan Pencegahan
+Route::get('/admin/pelaporan/ptpp/{id}/view', [App\Http\Controllers\PerbaikanPencegahanController::class, 'viewPDF'])->name('ptpp.view');
+Route::get('/admin/pelaporan/ptpp/{id}/pdf', [App\Http\Controllers\PerbaikanPencegahanController::class, 'downloadPDF'])->name('ptpp.pdf');
+Route::get('/admin/pelaporan/ptpp/preview', [App\Http\Controllers\PerbaikanPencegahanController::class, 'previewPDF'])->name('ptpp.preview');

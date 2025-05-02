@@ -26,4 +26,9 @@ class lapor_ptpp extends Model
     ];
 
     public $timestamps = true;
+
+    protected $casts = [
+        'tgl_kejadian' => 'date',
+        'tgl_laporan' => 'date',
+    ];
 }
