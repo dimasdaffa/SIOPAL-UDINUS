@@ -20,13 +20,7 @@ class PerbaikanPencegahanController extends Controller
         $ptpp = lapor_ptpp::findOrFail($id);
 
         // Generate PDF
-        $pdf = Pdf::loadView('admin.perbaikan_pencegahan', ['ptpp' => $ptpp]);
-
-        // Atur paper size dan orientasi
-        $pdf->setPaper('A4', 'portrait');
-
-        // Return PDF untuk preview
-        return $pdf->stream('permintaan_tindakan_perbaikan_dan_pencegahan.pdf');
+        return view('admin.perbaikan_pencegahan', ['ptpp' => $ptpp]);
     }
 
     /**
@@ -82,12 +76,12 @@ class PerbaikanPencegahanController extends Controller
         }
 
         // Generate PDF
-        $pdf = PDF::loadView('admin.perbaikan_pencegahan', ['ptpp' => $ptpp]);
+        // $pdf = PDF::loadView('admin.perbaikan_pencegahan', ['ptpp' => $ptpp]);
 
         // Atur paper size dan orientasi
-        $pdf->setPaper('A4', 'portrait');
+        // $pdf->setPaper('A4', 'portrait');
 
         // Return PDF untuk preview
-        return $pdf->stream('permintaan_tindakan_perbaikan_dan_pencegahan.pdf');
+        return view('admin.perbaikan_pencegahan', ['ptpp' => $ptpp]);
     }
 }

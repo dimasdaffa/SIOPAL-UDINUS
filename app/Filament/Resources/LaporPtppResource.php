@@ -85,14 +85,9 @@ class LaporPtppResource extends Resource
                     ->label('Lihat')
                     ->icon('heroicon-o-eye')
                     ->color('success')
-                    ->url(fn (lapor_ptpp $record): string => route('ptpp.view', $record->id))
+                    ->url(fn (lapor_ptpp $record): string => route('admin.perbaikan_pencegahan', $record->id))
                     ->openUrlInNewTab(),
-                Action::make('download_pdf')
-                    ->label('Cetak PDF')
-                    ->icon('heroicon-o-document-arrow-down')
-                    ->color('primary')
-                    ->url(fn (lapor_ptpp $record): string => route('ptpp.pdf', $record->id))
-                    ->openUrlInNewTab(),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
