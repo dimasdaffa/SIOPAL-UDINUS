@@ -18,7 +18,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="{{ public_path('logo-udinus.png') }}" style="height: 60px; float: left;">
+            <img src="{{ asset('/images/logo-udinus.png') }}" style="height: 90px; float: left;">
             <div>LABORATORIUM KOMPUTER UDINUS</div>
             <div>PERMINTAAN TINDAKAN PERBAIKAN DAN PENCEGAHAN (SEKRETARIS)</div>
         </div>
