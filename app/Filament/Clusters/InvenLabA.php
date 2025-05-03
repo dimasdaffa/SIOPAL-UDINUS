@@ -15,6 +15,8 @@ class InvenLabA extends Cluster
     // If you want to customize the cluster URL path
     protected static ?string $slug = 'inventaris-laboratorium-a';
 
+    // protected static ?string $modelLabel = 'INventarasi Lab A';
+
     // To explain in the navigation what this cluster is for
     protected static ?string $navigationGroup = 'INVENTARIS';
 }

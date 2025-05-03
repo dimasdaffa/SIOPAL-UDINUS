@@ -220,6 +220,10 @@ class InventarisPCLaboratoriumGResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ReplicateAction::make()
+                    ->label('Duplikat')
+                    ->icon('heroicon-o-document-duplicate')
+                    ->color('success')
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

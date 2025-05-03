@@ -29,7 +29,7 @@
         </div>
         <div class="row">
             <div>Tanggal Berlaku: 19 September 2022</div>
-            <div>Halaman: 2 dari 2</div>
+            <div>Halaman: 1 dari 2</div>
         </div>
 
         <div class="section">
