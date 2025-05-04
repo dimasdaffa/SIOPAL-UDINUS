@@ -57,9 +57,6 @@ class PSUResource extends Resource
                 Forms\Components\TextInput::make('efisiensi')
                     ->label('Efisiensi')
                     ->required(),
-                Forms\Components\TextInput::make('full_name')
-                    ->label('Full Name')
-                    ->disabled(), // Virtual field, should not be editable
                 Forms\Components\TextInput::make('tahun')
                     ->label('Tahun')
                     ->numeric()
