@@ -28,7 +28,7 @@ class DVDResource extends Resource
 
     protected static ?string $slug = 'dvd';
 
-    protected static ?string $navigationLabel = 'Data DVD';
+    protected static ?string $navigationLabel = 'DVD';
 
     protected static ?string $modelLabel = 'DVD';
 

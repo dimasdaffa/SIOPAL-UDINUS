@@ -26,7 +26,7 @@ class ProcessorResource extends Resource
 
     protected static ?string $slug = 'processor';
 
-    protected static ?string $navigationLabel = 'Data Processor';
+    protected static ?string $navigationLabel = 'Processor';
 
     protected static ?string $modelLabel = 'Processor';
 

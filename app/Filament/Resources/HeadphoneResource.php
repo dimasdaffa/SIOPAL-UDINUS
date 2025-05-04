@@ -23,12 +23,12 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class HeadphoneResource extends Resource
 {
     protected static ?string $model = Headphone::class;
-    
+
     protected static ?string $navigationIcon = 'fluentui-headphones-24';
 
     protected static ?string $slug = 'headphone';
 
-    protected static ?string $navigationLabel = 'Data Headphone';
+    protected static ?string $navigationLabel = 'Headphone';
 
     protected static ?string $modelLabel = 'Headphone';
 

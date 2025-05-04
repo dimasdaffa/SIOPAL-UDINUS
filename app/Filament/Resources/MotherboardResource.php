@@ -26,7 +26,7 @@ class MotherboardResource extends Resource
 
     protected static ?string $slug = 'motherboard';
 
-    protected static ?string $navigationLabel = 'Data Motherboard';
+    protected static ?string $navigationLabel = 'Motherboard';
 
     protected static ?string $modelLabel = 'Motherboard';
 

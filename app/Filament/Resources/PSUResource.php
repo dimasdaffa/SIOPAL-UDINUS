@@ -25,7 +25,7 @@ class PSUResource extends Resource
 
     protected static ?string $slug = 'psu';
 
-    protected static ?string $navigationLabel = 'Data PSU';
+    protected static ?string $navigationLabel = 'PSU';
 
     protected static ?string $modelLabel = 'PSU';
 

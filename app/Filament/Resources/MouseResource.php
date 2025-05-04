@@ -27,7 +27,7 @@ class MouseResource extends Resource
 
     protected static ?string $slug = 'mouse';
 
-    protected static ?string $navigationLabel = 'Data Mouse';
+    protected static ?string $navigationLabel = 'Mouse';
 
     protected static ?string $modelLabel = 'Mouse';
 
