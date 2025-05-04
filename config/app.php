@@ -15,6 +15,11 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'aliases' => [
+        // ...
+        'PDF' => Barryvdh\DomPDF\Facade::class, // Alias for DomPDF Facade
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

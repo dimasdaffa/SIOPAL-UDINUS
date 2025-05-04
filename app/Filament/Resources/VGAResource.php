@@ -29,7 +29,7 @@ class VGAResource extends Resource
 
     protected static ?string $slug = 'vga';
 
-    protected static ?string $navigationLabel = 'Data VGA';
+    protected static ?string $navigationLabel = 'VGA';
 
     protected static ?string $modelLabel = 'VGA';
 

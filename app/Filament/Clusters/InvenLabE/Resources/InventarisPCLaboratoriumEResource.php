@@ -39,7 +39,7 @@ class InventarisPCLaboratoriumEResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-        ->schema([
+            ->schema([
             TextInput::make('no_inventaris')
                 ->label('No Inventaris')
                 ->disabled() // Dibuat otomatis di model
@@ -82,10 +82,10 @@ class InventarisPCLaboratoriumEResource extends Resource
             Select::make('dvd_id')
                 ->label('DVD')
                 ->relationship('dvd', 'merk')
-                ->required()
                 ->preload() //agar option select bisa muncul
                 ->searchable()
-                ->placeholder('Select a DVD'),
+                ->placeholder('Select a DVD')
+                ->nullable(), // Allow null values
             Select::make('keyboard_id')
                 ->label('Keyboard')
                 ->relationship('keyboard', 'full_name')
@@ -110,17 +110,24 @@ class InventarisPCLaboratoriumEResource extends Resource
             Select::make('headphone_id')
                 ->label('Headphone')
                 ->relationship('headphone', 'full_name')
+                ->preload() //agar option select bisa muncul
+                ->searchable()
+                ->placeholder('Select a Headphone')
+                ->nullable(), // Allow null values
+            Select::make('psu_id')
+                ->label('PSU')
+                ->relationship('psu', 'full_name')
                 ->required()
                 ->preload() //agar option select bisa muncul
                 ->searchable()
-                ->placeholder('Select a Headphone'),
-        ]);
-    }
+                ->placeholder('Select a PSU'),
+            ]);
+        }
 
-    public static function table(Table $table): Table
-    {
+        public static function table(Table $table): Table
+        {
         return $table
-        ->columns([
+            ->columns([
             TextColumn::make('no_inventaris')
                 ->label('No Inventaris')
                 ->sortable()
@@ -154,7 +161,8 @@ class InventarisPCLaboratoriumEResource extends Resource
             TextColumn::make('dvd.merk')
                 ->label('DVD')
                 ->sortable()
-                ->searchable(),
+                ->searchable()
+                ->placeholder('Tidak ada'), // Display "Tidak ada" if null
 
             TextColumn::make('keyboard.full_name')
                 ->label('Keyboard')
@@ -174,56 +182,73 @@ class InventarisPCLaboratoriumEResource extends Resource
             TextColumn::make('headphone.full_name')
                 ->label('Headphone')
                 ->sortable()
+                ->searchable()
+                ->placeholder('Tidak ada'), // Display "Tidak ada" if null
+
+            TextColumn::make('psu.full_name')
+                ->label('PSU')
+                ->sortable()
                 ->searchable(),
-        ])
-        ->filters([
-            SelectFilter::make('motherboard_id')
-                ->label('Motherboard')
-                ->relationship('motherboard', 'full_name'),
+            ])
+            ->filters([
+                SelectFilter::make('motherboard_id')
+                    ->label('Motherboard')
+                    ->relationship('motherboard', 'full_name'),
 
-            SelectFilter::make('processor_id')
-                ->label('Processor')
-                ->relationship('processor', 'full_name'),
+                SelectFilter::make('processor_id')
+                    ->label('Processor')
+                    ->relationship('processor', 'full_name'),
 
-            SelectFilter::make('penyimpanan_id')
-                ->label('Penyimpanan')
-                ->relationship('penyimpanan', 'full_name'),
+                SelectFilter::make('penyimpanan_id')
+                    ->label('Penyimpanan')
+                    ->relationship('penyimpanan', 'full_name'),
 
-            SelectFilter::make('vga_id')
-                ->label('VGA')
-                ->relationship('vga', 'full_name'),
+                SelectFilter::make('vga_id')
+                    ->label('VGA')
+                    ->relationship('vga', 'full_name'),
 
-            SelectFilter::make('ram_id')
-                ->label('RAM')
-                ->relationship('ram', 'full_name'),
+                SelectFilter::make('ram_id')
+                    ->label('RAM')
+                    ->relationship('ram', 'full_name'),
 
-            SelectFilter::make('dvd_id')
-                ->label('DVD')
-                ->relationship('dvd', 'merk'),
+                SelectFilter::make('dvd_id')
+                    ->label('DVD')
+                    ->relationship('dvd', 'merk'),
 
-            SelectFilter::make('keyboard_id')
-                ->label('Keyboard')
-                ->relationship('keyboard', 'full_name'),
+                SelectFilter::make('keyboard_id')
+                    ->label('Keyboard')
+                    ->relationship('keyboard', 'full_name'),
 
-            SelectFilter::make('mouse_id')
-                ->label('Mouse')
-                ->relationship('mouse', 'full_name'),
+                SelectFilter::make('mouse_id')
+                    ->label('Mouse')
+                    ->relationship('mouse', 'full_name'),
 
-            SelectFilter::make('monitor_id')
-                ->label('Monitor')
-                ->relationship('monitor', 'full_name'),
+                SelectFilter::make('monitor_id')
+                    ->label('Monitor')
+                    ->relationship('monitor', 'full_name'),
 
-            SelectFilter::make('headphone_id')
-                ->label('Headphone')
-                ->relationship('headphone', 'full_name'),
-        ])
+                SelectFilter::make('headphone_id')
+                    ->label('Headphone')
+                    ->relationship('headphone', 'full_name'),
+
+                SelectFilter::make('psu_id')
+                    ->label('PSU')
+                    ->relationship('psu', 'full_name'),
+            ])
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ReplicateAction::make()
+                    ->label('Duplikat')
+                    ->icon('heroicon-o-document-duplicate')
+                    ->color('success')
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    // ExportBulkAction::make()
+                    //     ->exporter(InventarisPCLaboratoriumAExporter::class)
                 ]),
             ]);
     }

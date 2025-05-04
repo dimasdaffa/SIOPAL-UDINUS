@@ -28,7 +28,7 @@ class MonitorResource extends Resource
 
     protected static ?string $slug = 'monitor';
 
-    protected static ?string $navigationLabel = 'Data Monitor';
+    protected static ?string $navigationLabel = 'Monitor';
 
     protected static ?string $modelLabel = 'Monitor';
 

@@ -32,6 +32,8 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => '#104b8f',
             ])
             ->spa()
+            ->databaseNotifications()
+            ->databaseNotificationsPolling('5s')
             ->favicon(url('images/udinus.png'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')

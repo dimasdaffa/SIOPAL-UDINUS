@@ -27,7 +27,7 @@ class KeyboardResource extends Resource
 
     protected static ?string $slug = 'keyboard';
 
-    protected static ?string $navigationLabel = 'Data Keyboard';
+    protected static ?string $navigationLabel = 'Keyboard';
 
     protected static ?string $modelLabel = 'Keyboard';
 

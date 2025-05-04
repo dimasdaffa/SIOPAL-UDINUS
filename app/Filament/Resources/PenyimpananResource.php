@@ -30,7 +30,7 @@ class PenyimpananResource extends Resource
 
     protected static ?string $slug = 'penyimpanan';
 
-    protected static ?string $navigationLabel = 'Data Penyimpanan';
+    protected static ?string $navigationLabel = 'Penyimpanan';
 
     protected static ?string $modelLabel = 'Penyimpanan';
 

@@ -21,11 +21,12 @@ return new class extends Migration
             $table->unsignedBigInteger('penyimpanan_id');
             $table->unsignedBigInteger('vga_id');
             $table->unsignedBigInteger('ram_id');
-            $table->unsignedBigInteger('dvd_id');
+            $table->unsignedBigInteger('dvd_id')->nullable();
             $table->unsignedBigInteger('keyboard_id');
             $table->unsignedBigInteger('mouse_id');
             $table->unsignedBigInteger('monitor_id');
-            $table->unsignedBigInteger('headphone_id');
+            $table->unsignedBigInteger('headphone_id')->nullable();
+            $table->unsignedBigInteger('psu_id');
             $table->timestamps();
 
             $table->foreign('motherboard_id')->references('id')->on('motherboards')->onDelete('cascade');
@@ -38,6 +39,7 @@ return new class extends Migration
             $table->foreign('mouse_id')->references('id')->on('mice')->onDelete('cascade');
             $table->foreign('monitor_id')->references('id')->on('monitors')->onDelete('cascade');
             $table->foreign('headphone_id')->references('id')->on('headphones')->onDelete('cascade');
+            $table->foreign('psu_id')->references('id')->on('p_s_u_s')->onDelete('cascade');
 
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         });

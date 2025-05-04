@@ -70,4 +70,8 @@ class Inventaris_PC_Laboratorium_B extends Model
     {
         return $this->belongsTo(Headphone::class, 'headphone_id');
     }
+    public function psu()
+    {
+        return $this->belongsTo(PSU::class, 'psu_id');
+    }
 }

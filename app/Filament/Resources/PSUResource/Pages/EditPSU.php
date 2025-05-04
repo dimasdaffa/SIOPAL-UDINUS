@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\JamPraktikumResource\Pages;
+namespace App\Filament\Resources\PSUResource\Pages;
 
-use App\Filament\Resources\JamPraktikumResource;
+use App\Filament\Resources\PSUResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditJamPraktikum extends EditRecord
+class EditPSU extends EditRecord
 {
-    protected static string $resource = JamPraktikumResource::class;
+    protected static string $resource = PSUResource::class;
 
     protected function getHeaderActions(): array
     {

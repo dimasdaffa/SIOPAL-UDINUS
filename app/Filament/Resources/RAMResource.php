@@ -29,10 +29,10 @@ class RAMResource extends Resource
 
     protected static ?string $slug = 'ram';
 
-    protected static ?string $navigationLabel = 'Data RAM';
+    protected static ?string $navigationLabel = 'RAM';
 
     protected static ?string $modelLabel = 'RAM';
-    
+
     protected static ?string $cluster = AllHardware::class;
 
     protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Top;
