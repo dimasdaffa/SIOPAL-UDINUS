@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\LaboranResource\Pages;
+namespace App\Filament\Resources\UserResource\Pages;
 
-use App\Filament\Resources\LaboranResource;
+use App\Filament\Resources\UserResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListLaborans extends ListRecords
+class ListUsers extends ListRecords
 {
-    protected static string $resource = LaboranResource::class;
+    protected static string $resource = UserResource::class;
 
     protected function getHeaderActions(): array
     {

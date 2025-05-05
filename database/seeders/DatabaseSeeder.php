@@ -742,6 +742,9 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'admin',
                 'email' => 'admin@mail.com',
+                'no_phone' => '081234567890',
+                'npp' => '1234567890',
+                'position' => 'Super Admin',
                 'password' => bcrypt('admin'),
             ],
         ]);

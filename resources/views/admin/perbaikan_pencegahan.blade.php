@@ -32,11 +32,11 @@
             <div>Halaman: 1 dari 2</div>
         </div>
 
-        <div class="section">
+        <div class="section"><br>
             <div>Bentuk Ketidaksesuaian: <div class="line">{{ $data->ketidaksesuaian }}</div></div>
             <div>Lokasi: <div class="line">{{ $data->lokasi }}</div></div>
             <div>Tanggal Kejadian: <div class="line">{{ $data->tgl_kejadian }}</div> Jam: {{ $data->jam_kejadian }}</div>
-            <div>Tanggal Laporan: <div class="line">{{ $data->tgl_laporan }}</div> Jam: {{ $data->jam_laporan }}</div>
+            <div>Tanggal Laporan: <div class="line"></div> Jam: {{ $data->jam_laporan }}</div>
         </div>
 
         <div class="section">
