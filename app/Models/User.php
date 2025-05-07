@@ -27,6 +27,16 @@ class User extends Authenticatable
         'posisi'
     ];
 
+    public function canAccessPanel(): bool
+    {
+        // Only allow in production environment
+        if (app()->environment('production')) {
+            // Check if user has super_admin role
+            return $this->hasRole('super_admin');
+        }
+        return true; // Allow all users in local environment
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

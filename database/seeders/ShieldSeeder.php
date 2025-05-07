@@ -10,11 +10,23 @@ class ShieldSeeder extends Seeder
 {
     public function run(): void
     {
+        // Clear cached permissions to ensure the latest permissions are loaded
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
-        $rolesWithPermissions = '[{"name":"super_admin","guard_name":"Sekretaris","permissions":["view_role","view_any_role","create_role","update_role","delete_role","delete_any_role"]}]';
-        $directPermissions = '[]';
+        // Define the roles and permissions in JSON format
+        $rolesWithPermissions = '[{
+            "name": "super_admin",
+            "guard_name": "web",
+            "permissions": ["view_role", "view_any_role", "create_role", "update_role", "delete_role", "delete_any_role", "manage_all"]
+        }, {
+            "name": "laboran",
+            "guard_name": "web",
+            "permissions": ["view_role", "view_any_role", "create_role", "update_role", "delete_role", "delete_any_role", "manage_all"]
+        }]';
 
+        $directPermissions = '[]'; // You can add more direct permissions if needed
+
+        // Create roles with permissions
         static::makeRolesWithPermissions($rolesWithPermissions);
         static::makeDirectPermissions($directPermissions);
 
