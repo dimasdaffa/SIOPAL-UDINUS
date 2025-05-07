@@ -30,7 +30,7 @@ class UserResource extends Resource
 
     protected static ?string $navigationGroup = 'MASTER DATA';
 
-    protected static ?int $navigationSort = 5 ;
+    protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {
@@ -57,6 +57,9 @@ class UserResource extends Resource
                     ->label('No HP')
                     ->required()
                     ->maxLength(15),
+                    Forms\Components\CheckboxList::make('roles')
+                    ->relationship('roles', 'name')
+                    ->searchable(),
             ]);
     }
 
@@ -78,6 +81,10 @@ class UserResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('no_phone')
                     ->label('No HP')
+                    ->searchable()
+                    ->sortable(),
+                    Tables\Columns\TextColumn::make('roles.name')
+                    ->label('Roles')
                     ->searchable()
                     ->sortable(),
             ])

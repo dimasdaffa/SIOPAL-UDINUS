@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Inventaris_PC_Laboratorium_F extends Model
@@ -21,57 +22,77 @@ class Inventaris_PC_Laboratorium_F extends Model
         });
     }
 
+    // Eager loading with selected columns
     public function motherboard()
     {
-        return $this->belongsTo(Motherboard::class, 'motherboard_id');
+        return $this->belongsTo(Motherboard::class, 'motherboard_id')->select('id', 'full_name');
     }
 
     public function processor()
     {
-        return $this->belongsTo(Processor::class, 'processor_id');
+        return $this->belongsTo(Processor::class, 'processor_id')->select('id', 'full_name');
     }
 
     public function penyimpanan()
     {
-        return $this->belongsTo(Penyimpanan::class, 'penyimpanan_id');
+        return $this->belongsTo(Penyimpanan::class, 'penyimpanan_id')->select('id', 'full_name');
     }
 
     public function vga()
     {
-        return $this->belongsTo(VGA::class, 'vga_id');
+        return $this->belongsTo(VGA::class, 'vga_id')->select('id', 'full_name');
     }
 
     public function ram()
     {
-        return $this->belongsTo(RAM::class, 'ram_id');
+        return $this->belongsTo(RAM::class, 'ram_id')->select('id', 'full_name');
     }
 
     public function dvd()
     {
-        return $this->belongsTo(DVD::class, 'dvd_id');
+        return $this->belongsTo(DVD::class, 'dvd_id')->select('id', 'merk');
     }
 
     public function keyboard()
     {
-        return $this->belongsTo(Keyboard::class, 'keyboard_id');
+        return $this->belongsTo(Keyboard::class, 'keyboard_id')->select('id', 'full_name');
     }
 
     public function mouse()
     {
-        return $this->belongsTo(Mouse::class, 'mouse_id');
+        return $this->belongsTo(Mouse::class, 'mouse_id')->select('id', 'full_name');
     }
 
     public function monitor()
     {
-        return $this->belongsTo(Monitor::class, 'monitor_id');
+        return $this->belongsTo(Monitor::class, 'monitor_id')->select('id', 'full_name');
     }
 
     public function headphone()
     {
-        return $this->belongsTo(Headphone::class, 'headphone_id');
+        return $this->belongsTo(Headphone::class, 'headphone_id')->select('id', 'full_name');
     }
+
     public function psu()
     {
-        return $this->belongsTo(PSU::class, 'psu_id');
+        return $this->belongsTo(PSU::class, 'psu_id')->select('id', 'full_name');
+    }
+
+    // Eager load all relations
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->with([
+            'motherboard',
+            'processor',
+            'penyimpanan',
+            'vga',
+            'ram',
+            'dvd',
+            'keyboard',
+            'mouse',
+            'monitor',
+            'headphone',
+            'psu',
+        ]);
     }
 }

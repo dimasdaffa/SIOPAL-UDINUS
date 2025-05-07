@@ -255,6 +255,23 @@ class InventarisPCLaboratoriumCResource extends Resource
             ]);
     }
 
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->with([
+            'motherboard',
+            'processor',
+            'penyimpanan',
+            'vga',
+            'ram',
+            'dvd',
+            'keyboard',
+            'mouse',
+            'monitor',
+            'headphone',
+            'psu',
+        ]);
+    }
+
     public static function getRelations(): array
     {
         return [
