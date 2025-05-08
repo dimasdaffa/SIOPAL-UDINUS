@@ -67,6 +67,7 @@ class InventarisNonPCLaboratoriumBResource extends Resource
                     ->required(),
 
                 TextInput::make('keterangan')
+                ->required()
                     ->label('Keterangan')
                     ->maxLength(255),
             ]);

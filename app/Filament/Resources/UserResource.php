@@ -57,7 +57,7 @@ class UserResource extends Resource
                     ->label('No HP')
                     ->required()
                     ->maxLength(15),
-                    Forms\Components\CheckboxList::make('roles')
+                Forms\Components\CheckboxList::make('roles')
                     ->relationship('roles', 'name')
                     ->searchable(),
             ]);
